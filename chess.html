@@ -1,135 +1,136 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Chess Exercise</title>
-    <link rel="stylesheet" href="chess.css" />
-    <script src="chess.js"></script>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Chess Exercise</title>
+        <link rel="stylesheet" href="chess.css" />
+        <script src="chess.js"></script>
+        <script src="gamePlayer.js"></script>
+    </head>
 
-  <body>
-    <div id="grid">
-      <div class="row">
-        <div class="cell gridLabel"></div>
-        <div class="cell gridLabel">A</div>
-        <div class="cell gridLabel">B</div>
-        <div class="cell gridLabel">C</div>
-        <div class="cell gridLabel">D</div>
-        <div class="cell gridLabel">E</div>
-        <div class="cell gridLabel">F</div>
-        <div class="cell gridLabel">G</div>
-        <div class="cell gridLabel">H</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">8</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">7</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">6</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">5</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">4</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">3</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">2</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-      <div class="row">
-        <div class="cell gridLabel">1</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-        <div class="cell">?</div>
-      </div>
-    </div>
+    <body>
+        <div id="grid">
+            <div class="row">
+                <div class="cell gridLabel"></div>
+                <div class="cell gridLabel">A</div>
+                <div class="cell gridLabel">B</div>
+                <div class="cell gridLabel">C</div>
+                <div class="cell gridLabel">D</div>
+                <div class="cell gridLabel">E</div>
+                <div class="cell gridLabel">F</div>
+                <div class="cell gridLabel">G</div>
+                <div class="cell gridLabel">H</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">8</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">7</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">6</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">5</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">4</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">3</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">2</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+            <div class="row">
+                <div class="cell gridLabel">1</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+                <div class="cell">?</div>
+            </div>
+        </div>
 
-    <div class="container-container">
-      <div id="controlPanel">
-        <label for="fromInput">From:</label>
-        <input id="fromInput" />
-        <label for="toInput">To:</label>
-        <input id="toInput" />
-        <button id="moveButton">Move</button>
-      </div>
-      <div id="FEN-panel">
-        <label for="FEN-choice">Choose Starting Position</label>
-        <select id="FEN-choice">
-          <option value="StartingPosition">Starting Position</option>
-          <option value="KingsGambit">Kings Gambit</option>
-          <option value="CaroKann">Caro-Kann</option>
-          <option value="Custom">Custom</option>
-        </select>
-        <label for="custom-FEN">Paste Custom FEN</label>
-        <input id="custom-FEN" />
-        <button id="newGameButton">New Game</button>
-      </div>
-    </div>
-  </body>
+        <div class="container-container">
+            <div id="controlPanel">
+                <label for="fromInput">From:</label>
+                <input id="fromInput" />
+                <label for="toInput">To:</label>
+                <input id="toInput" />
+                <button id="moveButton">Move</button>
+            </div>
+            <div id="FEN-panel">
+                <label for="FEN-choice">Choose Starting Position</label>
+                <select id="FEN-choice">
+                    <option value="StartingPosition">Starting Position</option>
+                    <option value="KingsGambit">Kings Gambit</option>
+                    <option value="CaroKann">Caro-Kann</option>
+                    <option value="Custom">Custom</option>
+                </select>
+                <label for="custom-FEN">Paste Custom FEN</label>
+                <input id="custom-FEN" />
+                <button id="newGameButton">New Game</button>
+            </div>
+        </div>
+    </body>
 </html>
