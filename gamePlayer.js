@@ -1,11 +1,54 @@
-let pgn =
-    " 1. e4 c5 2. d4 cxd4 3. c3 dxc3 4. Nxc3 Nc6 5. Bc4 e5 6. Nf3 Bb4 7. O-O Bxc3 8. bxc3 Nf6 9. Qe2 d6 10. Rd1 O-O 11. Ba3 Re8 12. Rxd6 Qc7 13. Ng5 Be6 14. Nxe6 fxe6 15. Bxe6+ Kh8 16. Rad1 Rad8 17. Rxd8 Rxd8 18. Rxd8+ Qxd8 19. h3 h6 20. Qb5 Qd1+ 21. Kh2 Nxe4 22. Qxb7 Nxf2 23. Qxc6 Qh1+ 24. Kg3 Qe1 25. Qe8+ Kh7 26. Bf5+ g6 27. Qxg6+ Kh8 28. Qf6+ Kg8 29. Qf8# 1-0 ";
-let moves = GetMovesFromPGN(pgn.trim());
+let pgn;
+let moves;
 let moveCounter = -1;
-let randInt = Math.floor(Math.random() * 10);
 
+window.onload = function () {
+    window.addEventListener("keydown", DetermineKey);
+    document
+        .querySelector("#load-btn")
+        .addEventListener("click", GetPGNFromHTML);
+};
+
+function DetermineKey(e) {
+    if (e.key === "ArrowRight") {
+        MoveForward();
+    } else if (e.key === "ArrowLeft") {
+        MoveBackward();
+    }
+}
+function MoveForward() {
+    if (moveCounter >= moves.length) {
+        Speak("Starting Game Over");
+        moveCounter = -1;
+        return;
+    }
+    moveCounter++;
+    Speak(TranslateMove(moves[moveCounter]));
+}
+
+function MoveBackward() {
+    moveCounter--;
+    if (moveCounter < 0) {
+        moveCounter = 0;
+    }
+    Speak(TranslateMove(moves[moveCounter]));
+}
+function GetPGNFromHTML() {
+    let fullPGN = document.querySelector("#pgn-input").value.trim();
+    moves = GetMovesFromPGN(fullPGN);
+    document.querySelector("#pgn-input").value = "";
+    document.querySelector("#pgn-input").ariaPlaceholder = "Good Luck!";
+    console.log("hello");
+}
 function GetMovesFromPGN(pgnString) {
-    let pgnArray = pgnString.split(" ");
+    let bracketsIncluded = pgnString.split("\n");
+    let cleanString = "";
+    for (let j = 0; j < bracketsIncluded.length; j++) {
+        if (bracketsIncluded[j].startsWith("[")) continue;
+        cleanString += bracketsIncluded[j];
+    }
+    cleanString = cleanString.trim();
+    let pgnArray = cleanString.split(" ");
     let returnArray = [];
     let counter = 0;
     for (let i = 0; i < pgnArray.length; i++) {
@@ -67,24 +110,3 @@ function TranslateMove(notation) {
     }
     return newPhrase;
 }
-
-window.onload = function () {
-    console.log(moves);
-    window.addEventListener("keydown", (event) => {
-        const keyName = event.key;
-        if (keyName === "ArrowLeft") {
-            moveCounter--;
-            if (moveCounter < 0) {
-                moveCounter = 0;
-            }
-            Speak(TranslateMove(moves[moveCounter]));
-        } else if (keyName === "ArrowRight") {
-            if (moveCounter >= moves.length) {
-                Speak("Starting Game Over");
-                moveCounter = 0;
-            }
-            moveCounter++;
-            Speak(TranslateMove(moves[moveCounter]));
-        }
-    });
-};
