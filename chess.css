@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #302e2b;
+  align-items: center;
+}
+#grid {
+  box-shadow:
+    rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.container-container {
+  display: flex;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(9, 50px);
+  grid-template-rows: 50px;
+}
+
+.row > div {
+  font-size: 35px;
+}
+
+.cell {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: #ebecd0;
+}
+.cell:not(:empty) {
+  cursor: pointer;
+}
+.row:nth-child(odd):not(:first-child) {
+  .cell:nth-child(even) {
+    background-color: #739552;
+  }
+}
+.row:nth-child(even) {
+  .cell:nth-child(odd):not(:first-child) {
+    background-color: #739552;
+  }
+}
+
+.gridLabel {
+  font-family: sans-serif;
+  color: whitesmoke;
+  background-color: #302e2b;
+}
+
+#controlPanel,
+#FEN-panel {
+  padding: 20px;
+  margin: 50px 0 0 50px;
+  background-color: #262522;
+  border-radius: 7px;
+  color: white;
+
+  box-shadow:
+    rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 10px;
+  align-items: center;
+}
+
+input {
+  font-size: 1rem;
+  background-color: #1c1b19;
+  text-align: center;
+  color: white;
+  border: 0px;
+  border-radius: 7px;
+}
+
+label {
+  font-size: 1rem;
+  text-align: center;
+}
+
+button {
+  font-size: 1rem;
+  background-color: #1c1b19;
+  color: white;
+  cursor: pointer;
+  border: 0px;
+  border-radius: 7px;
+  transition: 0.2s;
+}
+button:hover {
+  background-color: #403d39;
+}
+
+#moveButton {
+  grid-column: 2;
+}
+
+#newGameButton {
+  margin: 20px 0 0 50px;
+}
+select {
+  font-size: 1rem;
+  background-color: #1c1b19;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border: 0px;
+  border-radius: 7px;
+}
+.selected-piece {
+  background-color: #b9ca42;
+}
