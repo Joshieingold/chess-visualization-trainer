@@ -7,6 +7,10 @@ window.onload = function () {
     document
         .querySelector("#load-btn")
         .addEventListener("click", GetPGNFromHTML);
+    document.querySelector("#back-btn").addEventListener("click", MoveBackward);
+    document
+        .querySelector("#forward-btn")
+        .addEventListener("click", MoveForward);
 };
 
 function DetermineKey(e) {
